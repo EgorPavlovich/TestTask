@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using TestTask_WpfApp.MVVM;
+
 namespace TestTask_WpfApp
 {
     /// <summary>
@@ -23,6 +25,8 @@ namespace TestTask_WpfApp
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new ApplicationViewModel();
         }
     }
 }
