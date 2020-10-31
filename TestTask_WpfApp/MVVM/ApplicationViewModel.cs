@@ -8,6 +8,13 @@ using System.Collections.ObjectModel;
 
 namespace TestTask_WpfApp.MVVM
 {
+    /// <summary>
+    /// Класс ApplicationViewModel представляет модель представления
+    /// </summary>
+    /// <remarks>
+    /// Это класс модели представления, через который будут связаны модель Folder и представление MainWindow.xaml.
+    /// В этом классе определён список объектов Folder и свойство, которое указывает на выделенный элемент в этом списке.
+    /// </remarks>  
     public class ApplicationViewModel : INotifyPropertyChanged
     {
         private Folder selectedFolder;

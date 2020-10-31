@@ -7,6 +7,9 @@ using System.Runtime.CompilerServices;
 
 namespace TestTask_WpfApp.MVVM
 {
+    /// <summary>
+    /// Класс Folder представляет модель приложения
+    /// </summary>
     public class Folder : INotifyPropertyChanged
     {
         private string path;
