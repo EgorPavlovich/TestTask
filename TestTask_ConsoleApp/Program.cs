@@ -1,5 +1,7 @@
 ﻿using System;
 
+using static TestTask_ConsoleApp.FileProcessing;
+
 namespace TestTask_ConsoleApp
 {
     /// <summary>
@@ -33,7 +35,10 @@ namespace TestTask_ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Folder folder = new Folder(@"D:\Загрузки\Test", new CurrentDirectory());
+            folder.Process();
+
+            Console.ReadLine();
         }
     }
 }
