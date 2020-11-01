@@ -35,13 +35,43 @@ namespace TestTask_ConsoleApp
     {
         static void Main(string[] args)
         {
-            Folder folder = new Folder(@"D:\Загрузки\Test", new CurrentDirectory());
-            folder.Process();
+            //Folder folder = new Folder(@"D:\Загрузки\Test", new CurrentDirectory());
+            //folder.Process();
 
             //folder.Processable = new AllSubfolders();
             //folder.Process();
 
+            try
+            {
+                string Path = string.Empty;
+                string Method = string.Empty;
+
+                Console.Write("Введите папку для подсчёта суммы значений байт каждого файла: ");
+                Path = Console.ReadLine();
+
+                Console.Write("Введите метод подсчёта (--current или --all): ");
+                Method = Console.ReadLine();
+
+                if (Method == "--current")
+                {
+                    Folder folder = new Folder(Path, new CurrentDirectory());
+                    folder.Process();
+                }
+
+                if (Method == "--all")
+                {
+                    Folder folder = new Folder(Path, new AllSubfolders());
+                    folder.Process();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
             Console.ReadLine();
         }
+
     }
 }
