@@ -38,6 +38,9 @@ namespace TestTask_ConsoleApp
             Folder folder = new Folder(@"D:\Загрузки\Test", new CurrentDirectory());
             folder.Process();
 
+            //folder.Processable = new AllSubfolders();
+            //folder.Process();
+
             Console.ReadLine();
         }
     }
