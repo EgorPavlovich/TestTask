@@ -10,7 +10,7 @@ namespace TestTask_ConsoleApp
         {
             string Path { get; set; }
             void Process(string Path);
-            void SaveToXmlFile();
+            void SaveToXmlFile(ProcessedFile processedFile);
         }
 
     }
