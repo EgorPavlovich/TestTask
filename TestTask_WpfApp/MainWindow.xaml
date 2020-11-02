@@ -42,16 +42,16 @@
                 <Separator />
                 <MenuItem Header="Выход" Name="ButtonExit" Click="ButtonExit_OnClick"></MenuItem>
             </MenuItem>
-            <MenuItem Header="О программе" ></MenuItem>
+            <MenuItem Header="О программе"></MenuItem>
         </Menu>
 
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedFolder}" Margin="10">
             <TextBlock Text="Выбранный элемент: "  />
-            <TextBlock Text="Файл: " />
+            <TextBlock Text="Файл: " Foreground="DodgerBlue"/>
             <TextBlock Text="{Binding FileName, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Полный путь: " />
+            <TextBlock Text="Полный путь: " Foreground="DodgerBlue"/>
             <TextBlock Text="{Binding FullPath, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Сумма значений байт файла: " />
+            <TextBlock Text="Сумма значений байт файла: " Foreground="DodgerBlue"/>
             <TextBlock Text="{Binding ByteValues, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </Grid>

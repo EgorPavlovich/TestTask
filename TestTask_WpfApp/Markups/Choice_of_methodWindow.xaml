@@ -21,7 +21,9 @@
         </StackPanel>
 
         <WrapPanel Grid.Row="3" HorizontalAlignment="Right" Margin="0,25,0,0">
-            <Button IsDefault="True" Name="ButtonAccept" Click="ButtonAccept_OnClick" MinWidth="80" Margin="0,0,10,0">Подсчитать</Button>
+            <StackPanel>
+                <Button IsDefault="True" Name="ButtonAccept" Click="ButtonAccept_OnClick" MinWidth="80" Margin="0,0,10,0">Подсчитать</Button>
+            </StackPanel>
             <Button IsCancel="True" MinWidth="50">Отмена</Button>
         </WrapPanel>
 

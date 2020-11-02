@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Xml.Serialization;
+
+using TestTask_WpfApp.MVVM;
 
 namespace TestTask_WpfApp
 {
@@ -34,9 +37,20 @@ namespace TestTask_WpfApp
                         ProcessedFile processedFile = new ProcessedFile($"Файл: {fileInfo.Name}", $"Полный путь: {f}",
                             $"Сумма значений байт файла: {fileInfo.Length}");
                         SaveToXmlFile(processedFile);
-                        Console.WriteLine(
-                            $"\nФайл: {fileInfo.Name} \nПолный путь: {f} \nСумма значений байт файла: {fileInfo.Length}");
-                        Console.WriteLine();
+
+                        //Application.Current.Dispatcher.Invoke(delegate
+                        //{
+                        //    ApplicationViewModel applicationViewModel = new ApplicationViewModel(fileInfo.Name, f, $"{fileInfo.Length}");
+                        //});
+
+                        Application.Current.Dispatcher.Invoke(delegate
+                        {
+                            ApplicationViewModel applicationViewModel = new ApplicationViewModel();
+                            applicationViewModel.Folders = new System.Collections.ObjectModel.ObservableCollection<Folder>
+                            {
+                                new Folder { FileName = fileInfo.Name, FullPath = f, ByteValues = $"{fileInfo.Length}" }
+                            };
+                        });
                     }
 
                     Console.WriteLine();
