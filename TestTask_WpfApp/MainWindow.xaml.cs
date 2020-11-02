@@ -17,8 +17,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using TestTask_WpfApp.MVVM;
+using TestTask_WpfApp.Markups;
+
 using System.Windows.Forms;
 using MessageBox = System.Windows.MessageBox;
+
 
 namespace TestTask_WpfApp
 {
@@ -27,11 +30,9 @@ namespace TestTask_WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        //string Path = string.Empty;
-        //string Method = string.Empty;
-
-        public string Path { get; set; } = string.Empty;
-        public string Method { get; set; } = string.Empty;
+        public static string path { get; set; } = string.Empty;
+        public static string Method { get; set; } = string.Empty;
+        public static Choice_of_methodWindow methodWindow;
 
         public MainWindow()
         {
@@ -46,8 +47,33 @@ namespace TestTask_WpfApp
             {
                 if (dialog.ShowDialog(this.GetIWin32Window()) == System.Windows.Forms.DialogResult.OK)
                 {
-                    MessageBox.Show(dialog.SelectedPath,"Dialog");
+                    path = dialog.SelectedPath;
+                    methodWindow = new Choice_of_methodWindow();
+                    if (methodWindow.ShowDialog() == true)
+                    {
+                        //this.DialogResult = true;
+                    }
+                    
                 }
+            }
+        }
+
+        private void ButtonExit_OnClick(object sender, RoutedEventArgs e)
+        {
+            string messageBoxText = "Вы действительно хотите закрыть тестовую программу?";
+            string caption = "TestTask WpfApp";
+            MessageBoxButton button = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+
+            MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    System.Windows.Application.Current.Shutdown();
+                    break;
+                case MessageBoxResult.No:
+                    break;
             }
         }
     }

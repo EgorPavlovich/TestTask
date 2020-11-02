@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using static TestTask_WpfApp.FileProcessing;
@@ -20,10 +21,11 @@ namespace TestTask_WpfApp
 
         public void Process()
         {
-            Task.Run(() =>
-            {
-                Processable.Process(Path);
-            });
+            new Thread(() =>
+                {
+                    Processable.Process(Path);
+                })
+                { IsBackground = true, Priority = ThreadPriority.Highest }.Start();
         }
     }
 }
