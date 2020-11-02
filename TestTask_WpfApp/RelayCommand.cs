@@ -5,16 +5,29 @@ namespace TestTask_WpfApp
 {
     partial class RelayCommand : ICommand
     {
-        public event EventHandler CanExecuteChanged;
+        private Action<object> execute;
+        private Func<object, bool> canExecute;
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        {
+            this.execute = execute;
+            this.canExecute = canExecute;
+        }
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return this.canExecute == null || this.canExecute(parameter);
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            this.execute(parameter);
         }
     }
 }
