@@ -28,9 +28,9 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">
-                        <TextBlock FontSize="18" Text="{Binding Path=FileName}" />
-                        <TextBlock Text="{Binding Path=FullPath}" />
-                        <TextBlock Text="{Binding Path=ByteValues}" />
+                        <TextBlock FontSize="12" Text="{Binding Path=FileName}" />
+                        <TextBlock FontSize="9" Text="{Binding Path=FullPath}" />
+                        <TextBlock FontSize="12" Text="{Binding Path=ByteValues}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

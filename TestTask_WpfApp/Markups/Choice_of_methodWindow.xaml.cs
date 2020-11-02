@@ -48,7 +48,7 @@ namespace TestTask_WpfApp.Markups
             catch (Exception ex)
             {
                 // Отловленная ошибка появится в окне вывода Visual Studio.
-                Debugger.Log(0, "", $"{ex}");
+                Debugger.Log(0, "", $"Ошибка в методе-обработчике события ButtonAccept_OnClick. Ошибка: {ex}");
                 LogErrorAsync(ex);
             }
         }
