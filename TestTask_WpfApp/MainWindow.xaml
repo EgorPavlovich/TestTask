@@ -28,9 +28,9 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">
-                        <TextBlock FontSize="18" Text="{Binding Path=Path}" />
-                        <TextBlock Text="{Binding Path=Quantity}" />
-                        <TextBlock Text="{Binding Path=SumOfByte}" />
+                        <TextBlock FontSize="18" Text="{Binding Path=FileName}" />
+                        <TextBlock Text="{Binding Path=FullPath}" />
+                        <TextBlock Text="{Binding Path=ByteValues}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -38,7 +38,7 @@
 
         <Menu Height="25" VerticalAlignment="Top">
             <MenuItem Header="Папка">
-                <MenuItem Header="Выбрать папку для подсчёта"></MenuItem>
+                <MenuItem Header="Выбрать папку для подсчёта" Name="CountingFolder" Click="CountingFolder_OnClick"></MenuItem>
                 <Separator />
                 <MenuItem Header="Выход" ></MenuItem>
             </MenuItem>
@@ -47,12 +47,12 @@
 
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedFolder}" Margin="10">
             <TextBlock Text="Выбранный элемент: "  />
-            <TextBlock Text="Папка: " />
-            <TextBox Text="{Binding Path, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Количество файлов в папке: " />
-            <TextBox Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Сумма значений байт файла в папке: " />
-            <TextBox Text="{Binding SumOfByte, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Файл: " />
+            <TextBox Text="{Binding FileName, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Полный путь: " />
+            <TextBox Text="{Binding FullPath, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Сумма значений байт файла: " />
+            <TextBox Text="{Binding ByteValues, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </Grid>
 </Window>

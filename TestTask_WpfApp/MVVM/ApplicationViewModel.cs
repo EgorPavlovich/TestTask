@@ -34,10 +34,10 @@ namespace TestTask_WpfApp.MVVM
         {
             Folders = new ObservableCollection<Folder>
             {
-                new Folder { Path = @"D:\", Quantity = 1, SumOfByte = 56000 },
-                new Folder { Path = @"C:\", Quantity = 1, SumOfByte = 34000 },
-                new Folder { Path = @"C:\", Quantity = 1, SumOfByte = 66000 },
-                new Folder { Path = @"D:\", Quantity = 1, SumOfByte = 88000 },
+                new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "45000" },
+                new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "56000" },
+                new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "66000" },
+                new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "5000" }
             };
         }
 
