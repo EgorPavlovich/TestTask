@@ -16,9 +16,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using  System.Windows.Forms;
-
 using TestTask_WpfApp.MVVM;
+using  System.Windows.Forms;
+using MessageBox = System.Windows.MessageBox;
 
 namespace TestTask_WpfApp
 {
@@ -36,26 +36,40 @@ namespace TestTask_WpfApp
 
         private void CountingFolder_OnClick(object sender, RoutedEventArgs e)
         {
-            //OpenFileDialog folderBrowser = new OpenFileDialog();
-            //// Set validate names and check file exists to false otherwise windows will
-            //// not let you select "Folder Selection."
-            //folderBrowser.ValidateNames = false;
-            //folderBrowser.CheckFileExists = false;
-            //folderBrowser.CheckPathExists = true;
-            //// Always default to Folder Selection.
-            //folderBrowser.FileName = "Выбор папки";
-            //if (folderBrowser.ShowDialog() == DialogResult.HasValue)
-            //{
-            //    string folderPath = folderBrowser.InitialDirectory;
-            //    MessageBox.Show("fileContent", "File Content at path: " + folderPath, MessageBoxButton.OK);
-            //    Debugger.Log(0, "", $"{folderPath}.\n");
-            //    //MessageBox.Show()
-            //    //string folderPath = Path.GetFlowDirection() folderBrowser
-            //    //Debugger.Log(0, "", $"{folderPath}.\n");
-            //    //string folderPath = Path.GetFlowDirection(folderBrowser.FileName);//GetDirectoryName
-            //    // ...
-
-            //}
+            using (var dialog = new FolderBrowserDialog())
+            {
+                if (dialog.ShowDialog(this.GetIWin32Window()) == System.Windows.Forms.DialogResult.OK)
+                {
+                    MessageBox.Show(dialog.SelectedPath,"Dialog");
+                }
+            }
         }
+    }
+
+    public static class MyWpfExtensions
+    {
+        public static System.Windows.Forms.IWin32Window GetIWin32Window(this System.Windows.Media.Visual visual)
+        {
+            var source = System.Windows.PresentationSource.FromVisual(visual) as System.Windows.Interop.HwndSource;
+            System.Windows.Forms.IWin32Window win = new OldWindow(source.Handle);
+            return win;
+        }
+
+        private class OldWindow : System.Windows.Forms.IWin32Window
+        {
+            private readonly System.IntPtr _handle;
+            public OldWindow(System.IntPtr handle)
+            {
+                _handle = handle;
+            }
+
+            #region IWin32Window Members
+            System.IntPtr System.Windows.Forms.IWin32Window.Handle
+            {
+                get { return _handle; }
+            }
+            #endregion
+        }
+
     }
 }
