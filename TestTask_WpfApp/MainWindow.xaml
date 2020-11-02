@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestTask_WpfApp"
         mc:Ignorable="d"
-        Title="Тестовое задание" Height="429.412" Width="736.765">
+        Title="Тестовое задание" WindowStartupLocation="CenterScreen" Height="429.412" Width="780">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="14" />
@@ -28,9 +28,9 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">
-                        <TextBlock FontSize="18" Text="{Binding Path=Path}" />
-                        <TextBlock Text="{Binding Path=Quantity}" />
-                        <TextBlock Text="{Binding Path=SumOfByte}" />
+                        <TextBlock FontSize="12" Text="{Binding Path=FileName}" />
+                        <TextBlock FontSize="9" Text="{Binding Path=FullPath}" />
+                        <TextBlock FontSize="12" Text="{Binding Path=ByteValues}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -38,21 +38,21 @@
 
         <Menu Height="25" VerticalAlignment="Top">
             <MenuItem Header="Папка">
-                <MenuItem Header="Выбрать папку для подсчёта"></MenuItem>
+                <MenuItem Header="Выбрать папку для подсчёта" Name="CountingFolder" Click="CountingFolder_OnClick"></MenuItem>
                 <Separator />
-                <MenuItem Header="Выход" ></MenuItem>
+                <MenuItem Header="Выход" Name="ButtonExit" Click="ButtonExit_OnClick"></MenuItem>
             </MenuItem>
-            <MenuItem Header="О программе" ></MenuItem>
+            <MenuItem Header="О программе"></MenuItem>
         </Menu>
 
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedFolder}" Margin="10">
             <TextBlock Text="Выбранный элемент: "  />
-            <TextBlock Text="Папка: " />
-            <TextBox Text="{Binding Path, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Количество файлов в папке: " />
-            <TextBox Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Сумма значений байт файла в папке: " />
-            <TextBox Text="{Binding SumOfByte, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Файл: " Foreground="DodgerBlue"/>
+            <TextBlock Text="{Binding FileName, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Полный путь: " Foreground="DodgerBlue"/>
+            <TextBlock Text="{Binding FullPath, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Сумма значений байт файла: " Foreground="DodgerBlue"/>
+            <TextBlock Text="{Binding ByteValues, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </Grid>
 </Window>

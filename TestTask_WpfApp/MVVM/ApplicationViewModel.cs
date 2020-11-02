@@ -20,6 +20,23 @@ namespace TestTask_WpfApp.MVVM
         private Folder selectedFolder;
 
         public ObservableCollection<Folder> Folders { get; set; }
+
+        // команда добавления нового объекта
+        private RelayCommand addCommand;
+        public RelayCommand AddCommand
+        {
+            get
+            {
+                return addCommand ??
+                       (addCommand = new RelayCommand(obj =>
+                       {
+                           Folder folder = new Folder();
+                           Folders.Insert(0, folder);
+                           selectedFolder = folder;
+                       }));
+            }
+        }
+
         public Folder SelectedFolder
         {
             get { return selectedFolder; }
@@ -30,14 +47,20 @@ namespace TestTask_WpfApp.MVVM
             }
         }
 
+        public ApplicationViewModel(string fileName, string fullPath, string byteValues)
+        {
+            Folders = new ObservableCollection<Folder>
+            {
+                new Folder { FileName = fileName, FullPath = fullPath, ByteValues = byteValues }
+            };
+        }
+
         public ApplicationViewModel()
         {
             Folders = new ObservableCollection<Folder>
             {
-                new Folder { Path = @"D:\", Quantity = 1, SumOfByte = 56000 },
-                new Folder { Path = @"C:\", Quantity = 1, SumOfByte = 34000 },
-                new Folder { Path = @"C:\", Quantity = 1, SumOfByte = 66000 },
-                new Folder { Path = @"D:\", Quantity = 1, SumOfByte = 88000 },
+                new Folder { FileName = @"Microsoft Publisher Document.pub", FullPath = @"D:\Загрузки\Test", ByteValues = "45000" },
+                new Folder { FileName = @"Документ Microsoft Word.docx", FullPath = @"D:\Загрузки\Test\test3", ByteValues = "56000" }
             };
         }
 

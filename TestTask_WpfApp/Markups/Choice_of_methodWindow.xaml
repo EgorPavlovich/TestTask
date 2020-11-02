@@ -1,0 +1,31 @@
+﻿<Window x:Class="TestTask_WpfApp.Markups.Choice_of_methodWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestTask_WpfApp"
+        mc:Ignorable="d"
+        Title="TestTask WpfApp" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Height="175" Width="520" ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="85" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock HorizontalAlignment="Center">Выберите метод подсчёта: </TextBlock>
+
+        <StackPanel x:Name="stackPanel" HorizontalAlignment="Left" MaxHeight="40" Margin="20">
+            <RadioButton GroupName="Languages" Content="Подсчёт суммы значений байт каждого файла в папке: " Checked="ToggleButton1_OnChecked"/>
+            <RadioButton GroupName="Languages" Content="Подсчёт суммы значений байт каждого файла в папке и во всех её подпапках: " Checked="ToggleButton2_OnChecked"/>
+        </StackPanel>
+
+        <WrapPanel Grid.Row="3" HorizontalAlignment="Right" Margin="0,25,0,0">
+            <StackPanel>
+                <Button IsDefault="True" Name="ButtonAccept" Click="ButtonAccept_OnClick" MinWidth="80" Margin="0,0,10,0">Подсчитать</Button>
+            </StackPanel>
+            <Button IsCancel="True" MinWidth="50">Отмена</Button>
+        </WrapPanel>
+
+    </Grid>
+</Window>

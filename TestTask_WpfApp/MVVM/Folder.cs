@@ -12,36 +12,36 @@ namespace TestTask_WpfApp.MVVM
     /// </summary>
     public class Folder : INotifyPropertyChanged
     {
-        private string path;
-        private int quantity;
-        private float sumOfByte;
+        private string fileName;
+        private string fullPath;
+        private string byteValues;
 
-        public string Path
+        public string FileName
         {
-            get { return path; }
+            get { return fileName; }
             set
             {
-                path = value;
-                OnPropertyChanged("Path"); // Путь к папке: 
+                fileName = value;
+                OnPropertyChanged("FileName"); // Путь к папке: 
             }
         }
-        public int Quantity
+        public string FullPath
         {
-            get { return quantity; }
+            get { return fullPath; }
             set
             {
-                quantity = value;
-                OnPropertyChanged("Quantity"); // Количество файлов в папке: 
+                fullPath = value;
+                OnPropertyChanged("FullPath"); // Количество файлов в папке: 
             }
         }
 
-        public float SumOfByte
+        public string ByteValues
         {
-            get { return sumOfByte; }
+            get { return byteValues; }
             set
             {
-                sumOfByte = value;
-                OnPropertyChanged("SumOfByte"); // Сумма значений байт файла в папке:
+                byteValues = value;
+                OnPropertyChanged("ByteValues"); // Сумма значений байт файла в папке:
             }
         }
 
