@@ -17,7 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using TestTask_WpfApp.MVVM;
-using  System.Windows.Forms;
+using System.Windows.Forms;
 using MessageBox = System.Windows.MessageBox;
 
 namespace TestTask_WpfApp
@@ -27,6 +27,12 @@ namespace TestTask_WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        //string Path = string.Empty;
+        //string Method = string.Empty;
+
+        public string Path { get; set; } = string.Empty;
+        public string Method { get; set; } = string.Empty;
+
         public MainWindow()
         {
             InitializeComponent();

@@ -32,13 +32,13 @@ namespace TestTask_WpfApp.MVVM
 
         public ApplicationViewModel()
         {
-            Folders = new ObservableCollection<Folder>
-            {
-                new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "45000" },
-                new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "56000" },
-                new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "66000" },
-                new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "5000" }
-            };
+            //Folders = new ObservableCollection<Folder>
+            //{
+            //    new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "45000" },
+            //    new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "56000" },
+            //    new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "66000" },
+            //    new Folder { FileName = @"D:\Загрузки\Test", FullPath = "", ByteValues = "5000" }
+            //};
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
